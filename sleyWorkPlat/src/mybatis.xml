@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias type="sley.basedata.model.User" alias="User" />
+		<typeAlias type="sley.basedata.model.Depart" alias="Depart" />
+		<typeAlias type="sley.basedata.dto.LoginDto" alias="LoginDto" />
+		<typeAlias type="sley.basedata.model.Right" alias="Right" />
+		<typeAlias type="sley.basedata.model.UserRight" alias="UserRight" />
+		<typeAlias type="sley.basedata.dto.RightQueryDto" alias="RightQueryDto" />
+		<typeAlias type="sley.basedata.dto.UserQueryDto" alias="UserQueryDto" />
+		<typeAlias type="sley.finance.dto.SalaryDto" alias="SalaryDto" />
+		<typeAlias type="sley.finance.model.Salary" alias="Salary" />
+		<typeAlias type="sley.basedata.model.Param" alias="Param" />
+		<typeAlias type="sley.basedata.model.BaseData" alias="BaseData" />
+		<typeAlias type="sley.basedata.dto.DepartDto" alias="DepartDto" />
+		
+		
+		
+	</typeAliases>
+	<mappers>
+		<mapper resource="config/BaseDataMapper.xml" />
+		<mapper resource="config/FinanceMgtMapper.xml" />
+	</mappers>
+
+</configuration>

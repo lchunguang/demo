@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+        ">
+	<mvc:resources location="/images, /css, /styles, /html,scripts/"
+		mapping="/*" />
+
+	<context:component-scan base-package="sley.*">
+		<context:include-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
+		<context:exclude-filter type="annotation"
+			expression="org.springframework.stereotype.Service" />
+	</context:component-scan>
+	<mvc:annotation-driven />
+	<bean
+		class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView" />
+		<property name="prefix" value="/WEB-INF/jsp/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+	<!-- 拦截器配置 -->
+	<mvc:interceptors>
+		<!-- session超时 -->
+		<mvc:interceptor>
+			<mvc:mapping path="/**" />
+			<bean class=" sley.common.SessionInterceptor">
+				<property name="allowUrls">
+					<list>
+						<!-- 如果请求中包含以下路径，则不进行拦截 -->
+						<value>/login</value>
+						<value>/loginError</value>
+						<value>/getUserByRybh</value>
+						<value>/scripts</value>
+						<value>/styles</value>
+						<value>/image</value>
+						<value>/images</value>
+						<value>/service/sleyYyghService</value>
+					</list>
+				</property>
+			</bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- 以字节为单位的最大上传文件的大小 -->
+		<property name="maxUploadSize" value="10485760" />
+	</bean>
+</beans>

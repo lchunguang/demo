@@ -1,0 +1,94 @@
+/* left page CSS Document */
+	html, body, div, span, applet, object, iframe,
+	h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+	a, abbr, acronym, address, big, cite, code,
+	del, dfn, em, font, img, ins, kbd, q, s, samp,
+	small, strike, strong, sub, sup, tt, var,
+	b, u, i, center,
+	dl, dt, dd, ol, ul, li,
+	fieldset, form, label, legend,
+	table, caption, tbody, tfoot, thead, tr, th,  {
+	 margin: 0;
+	 padding: 0;
+	 border: 0;
+	 outline: 0;
+	 font-size: 100%;
+	 vertical-align: baseline;
+	 background: transparent;
+	}
+body{
+	height:100%;
+}
+
+*{
+	margin:0;
+	padding:0;
+	font-family:Lucida Sans Unicode, Lucida Grande, sans-serif;
+}
+.leftTreeTop{
+	width:200px;
+	height:27px;
+	background:url(../images/index/nav.jpg) repeat-x scroll 0 0;
+	font-size:12px;
+	color:#000;
+	line-height:27px;		
+}
+a, a:hover, a:active, a:visited {
+	padding-left:4px;
+	height:25px;
+	line-height:25px;
+	font-family:Lucida Sans Unicode, Lucida Grande, sans-serif;
+	font-size:12px;
+    color: #50565b;
+	vertical-align:top;
+    text-decoration: none;			/* 链接未点击，滑过，激活，访问过的样式 */
+}
+.ulcss a:hover{
+/*	 链接滑的样式 */
+	color: #e61c24;
+	text-decoration:none;
+}
+
+ul,li{
+	list-style:none;
+}
+ul {
+    margin: 0px 0 3px 0px;
+
+	}
+li {
+    margin: 4px 0 4px 10px;  
+}
+.ulcss ul{
+    display: none;	
+	/* 初始状态下子菜单不显示*/
+}
+
+.title {
+	width:186px;
+	height:26px;
+	background: url('../images/tab/left_tab.png') no-repeat;cursor: pointer;	
+	margin-left:5px;
+	margin-top:5px;
+	padding-left:3px;
+}
+.title p{
+	height:23px;
+	line-height:23px;
+	font-weight: bold;
+	font-family:"Lucida Sans Unicode", "Lucida Console", sans-serif;
+	color:#50565b;
+	font-size:12px;
+	padding-left:20px;
+}
+.min {
+	background: url("../images/min.png") no-repeat left center;
+}
+
+.max {
+	background: url("../images/max.png") no-repeat left center;
+}
+.h5 {
+	height:5px;
+	line-height:0px;
+}

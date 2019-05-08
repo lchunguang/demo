@@ -1,0 +1,171 @@
+@charset "UTF-8";
+/*login page CSS Document */
+body{
+	background-color:#fff;		/*color of body */
+}
+*{
+	margin:0;
+	padding:0;
+}
+#body{
+	width:920px;
+	margin:60px  auto;
+}
+.clear{
+	clear:both;
+}
+.logo{
+	width:797px;
+	height:67px;
+	background:url(../images/login/logologin.png) no-repeat scroll 0 0;
+	border:0px;
+}
+.login1{
+	width:948px;
+	height:78px;
+	background:url(../images/login/login1.jpg) no-repeat scroll 0 0;
+}
+.login2{
+	float:left;
+	width:527px;
+	height:160px;
+	background:url(../images/login/login2.jpg) no-repeat scroll 0 0;
+}
+.login3{
+	width:945px;
+	height:320px;
+	border:3px solid #9eccfe;
+	background:url(../images/login/banner.jpg) no-repeat scroll 0 0;
+}
+.login4{
+	width:848px;
+	height:58px;
+	background:url(../images/login/login4.jpg) no-repeat scroll 0 0;
+}
+.user_id,.user_pwd{
+	float:left;
+	width:75px;
+	height:30px;
+	margin-top:10px;
+	margin-left:15px;
+	text-align:left;
+	line-height:28px;
+	font-size:14px;
+	font-family:Lucida Sans Unicode, Lucida Grande, sans-serif;
+	font-weight:bold;
+	color:#000;
+}
+.title{
+	float:left;
+	width:75px;
+	height:25px;
+	margin-top:3px;
+	margin-left:15px;
+	text-align:left;
+	line-height:28px;
+	font-size:14px;
+	font-family:Lucida Sans Unicode, Lucida Grande, sans-serif;
+	font-weight:bold;
+	color:#000;
+}
+.btn{
+	
+	height:26px;
+	text-align:center;
+	text-valign:center;
+}
+.user_lbl{
+	width:75px;
+	height:30px;
+	margin-top:10px;
+	margin-left:15px;
+	text-align:left;
+	line-height:28px;
+	font-size:14px;
+	font-family:Lucida Sans Unicode, Lucida Grande, sans-serif;
+	font-weight:bold;
+	
+}
+.tip_user,.tip_pwd{
+	display:block;
+	width:300px;
+	height:0px;
+	line-height:12px;
+	color:#e61c24;
+	font-family:Lucida Sans Unicode, Lucida Grande, sans-serif;
+	font-size:12px;
+	margin-left:100px;
+}
+.tip_user{
+	margin-top:5px;
+}
+.tip_pwd{
+	margin-top:4px;
+}
+.tip_user_r,.tip_pwd_r{
+	width:300px;
+	height:12px;
+	line-height:12px;
+	color:#339900;
+	font-family:Lucida Sans Unicode, Lucida Grande, sans-serif;
+	font-size:12px;
+	margin-left:100px;
+}
+.tip_user_r{
+	margin-top:5px;
+}
+.tip_pwd_r{
+	margin-top:4px;
+}
+
+.tbox_id,.tbox_pwd{
+	display:block;
+	float:left;
+	width:165px;
+	height:25px;
+	line-height:25px;
+	margin-left:15px;
+	border:1px solid #2fa8e0;
+}
+
+.tbox_lbl{
+	width:165px;
+	height:26px;
+	line-height:25px;
+	margin-left:15px;
+}
+.tbox_id,.user_id{
+	margin-top:1px;
+}
+.tbox_pwd,.user_pwd{
+	margin-top:1px;
+}
+.a_sign{
+	display:block;
+	float:left;
+	width:67px;
+	height:26px;
+	margin-top:5px;
+	margin-left:10px;
+	line-height:26px;
+	text-align:center;
+	color:#fff;
+	font-family:Lucida Sans Unicode, Lucida Grande, sans-serif;
+	font-size:13px;
+	font-weight:bold;
+	text-decoration:none;
+	background:url(../images/login/btn_sign.png) no-repeat scroll 0 0;
+}
+.a_sign:hover{
+	text-decoration:underline;
+}
+
+.copyright{
+	width:848px;
+	height:20px;
+	line-height:20px;
+	color:#a0a0a0;
+	font-family:Lucida Sans Unicode, Lucida Grande, sans-serif;
+	font-size:12px;
+	text-align:right;
+}

@@ -1,0 +1,243 @@
+/*base CSS Document */
+@charset "UTF-8";
+
+/*login page CSS Document */
+html,body,div
+,span,applet,object,iframe
+,h1,h2,h3,h4,h5,h6,p,blockquote
+,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font
+,img,ins,kbd,q,s,samp
+,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,u,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th
+{
+margin:0;padding:0;border:0;
+outline:0;
+font-size:100%;
+vertical-align: baseline;
+background:transparent;
+}
+body {
+	height: 100%;
+	width: 100%;
+	font-size: 12px;
+	font-family: 'Lucida Sans Unicode', 'Lucida Grande', serif;
+	/*	margin:0 auto;	
+	text-align:center;	*/
+}
+
+html {
+	width: 100%;
+	height: 100%;
+}
+
+/*.body{
+	height:100%;
+	width:100%;
+	margin:0 auto;
+	border-left:1px solid #d6d6d6;	
+	border-right:1px solid #d6d6d6;	
+	background-color:#ffffff;	
+}*/
+* {
+	margin: 0 auto; /*��ǩ���� */
+	padding: 0;
+}
+
+.clear {
+	clear: both; /*��� */
+}
+
+.top {
+	position: relative;
+	width: 100%;
+	height: 85px;
+	background: url(../images/index/top022.jpg) repeat-x scroll 0 0;
+	/*��߱��� */
+}
+
+.top_repeat {
+	width: 350px;
+	margin-top: 40px;
+	position: absolute;
+	right: 10px;
+}
+
+.top_repeat a,a:hover,a:active,a:visited {
+	font-size: 12px;
+	color: #ffffff;
+	text-decoration: none; /* ����δ������������ʹ����ʽ */
+}
+
+.top_repeat a:hover {
+	color: #d6d6d6; /* ���ӻ�����ʽ */
+}
+
+.topLeft {
+	float: left;
+	width: 368px;
+	height: 85px;
+	background: url(../images/index/top01.jpg) no-repeat scroll 0 0;
+	/*��߱��� */
+}
+
+.topRight {
+	float: left;
+	height: 85px;
+	width: 400px;
+	background: url(../images/index/top022.jpg) repeat-x scroll 0 0;
+	/*�ұ߱��� */
+}
+
+.logo {
+	width: 260px;
+	height: 60px;
+	background: url(../images/index/logo.png) no-repeat scroll 0 0;
+	/*logo */
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+.sysName {
+	width: 330px;
+	height: 32px; /*ϵͳ����ʽ */
+	margin-top: 10px;
+	margin-left: 0%;
+}
+
+.means {
+	float: left;
+	width: 300px;
+	height: 30px;
+	line-height: 20px; /*�û����������ʽ */
+	margin-top: 10px;
+	margin-left: 10px;
+	text-align: right;
+	color: #fff;
+	font-family: Lucida Sans Unicode, Lucida Grande, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+.usercode {
+	border: 1px red solid
+}
+
+.photo {
+	float: left;
+	width: 35px; 
+	height: 35px;
+	margin-top: 10px;
+	background: url(../images/index/img.png) no-repeat scroll 0 0;
+}
+
+.icon2 {
+	display: block;
+	margin-top: 8px;
+	float: right; 
+	width: 32px;
+	height: 32px;
+	cursor: pointer;
+	margin-left: 5px;
+	background: url(../images/index/Exit.png) no-repeat scroll 0 0;
+}
+
+/*center*/
+.left,#leftScroll,.main,.mainhide {
+	float: left;
+}
+
+.main {
+	width: 100%;
+	height: 100%;
+}
+
+.main_s {
+	width: 100%;
+	height: 100%;
+}
+
+/*.mainhide{
+	width:1009px;
+	height:520px;
+}*/
+/*leftScroll page*/
+.topNav {
+	width: 100%;
+	height: 27px;
+	background: url(../images/index/nav.jpg) repeat-x scroll 0 0;
+	font-size: 12px;
+	color: #000;
+	line-height: 26px;
+	padding-left: 3px;
+	padding-top: 0px;
+}
+
+#scroll {
+	text-align: center;
+	width: 8px;
+	height: 220px;
+	margin-top: 120px;
+	cursor: pointer;
+	/*background:url(../img/index/leftScroll_left.png) no-repeat scroll 0 0;*/
+	/*background:url(../img/index/leftScroll_right.png) no-repeat scroll 0 0;*/
+}
+
+.scroll_bg1 {
+	background: url(../images/index/leftScroll_left.png) no-repeat scroll 0
+		0;
+}
+
+.scroll_bg2 {
+	background: url(../images/index/leftScroll_right.png) no-repeat scroll 0
+		0;
+}
+
+.left {
+	width: 200px;
+	/*background: url('../images/index/left_bg.png') no-repeat left bottom;*/
+}
+
+/*footer*/
+.footer {
+	width: 100%;
+	height: 22px;
+	border-top: 1px solid #72baf0;
+	background: url('../images/index/footer_b.jpg') repeat-x;
+}
+
+.footer span {
+	display: block;
+	float: right;
+	margin-right: 20px;
+	font-size: 12px;
+	color: #50565b;
+	line-height: 20px;
+	text-align: right;
+	font-family: Lucida Sans Unicode, Lucida Grande, sans-serif;
+}
+
+.footer a {
+	float: left;
+	margin-left: 4px;
+	margin-top: -3px;
+}
+
+table {
+	width: 100%;
+	height: 100%;
+}
+
+table {
+	width: 100%;
+	height: 100%;
+}
+
+.divGlobal,.DivTop,.DivBottom {
+	min-width: 760px;
+	width: expression(document.body.clientWidth <   1100 ?   "1100px" :   "100%")
+		/*最小宽度设置*/;
+	width: 100%;
+}
+
+.clear {
+	clear: both;
+}

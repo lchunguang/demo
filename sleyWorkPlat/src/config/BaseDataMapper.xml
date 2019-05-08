@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="sley.basedata.dao.BaseDataMapper">
+
+	<select id="checkUser" resultType="User" parameterType="LoginDto">
+		select
+		userId,userName,password,state from tuser
+		where userId=#{userId} 
+	</select>
+	<select id="findUserByUserId" resultType="User" parameterType="String">
+		select
+		*
+		from tuser
+		where
+		userId=#{_parameter}
+	</select>
+
+	<update id="updatePassword" parameterType="User">
+		update tuser set
+		password=#{newPassword}
+		where userId=#{userId}
+	</update>
+
+	<select id="queryUserFirstRight" resultType="Right"
+		parameterType="String">
+		select rightId,rightName,url,parentRightId,flag
+		from
+		dbo.tright
+		where flag=1 and rightId in (select rightId from
+		dbo.tuserRight tur where
+		masterId=#{_parameter}) order by sortNo
+	</select>
+
+	<select id="querySubRight" resultType="Right" parameterType="String">
+		select rightId,rightName,url
+		from dbo.tright
+		where flag=2 and
+		parentRightId=#{rightId} and rightId in (select rightId from
+		dbo.tuserRight tur where
+		masterId=#{masterId}) order by sortNo
+	</select>
+
+	<select id="countUsersByCondition" parameterType="UserQueryDto"
+		resultType="int">
+		select count(*)
+		from tuser where
+		1=1
+		<if test="parentDepartId != null  and parentDepartId != '' ">
+			and departId in (select departId from tdepart where parentDepartId=#{parentDepartId})
+		</if>
+		<if test="departId != null  and departId != '' ">
+			and departId=#{departId}
+		</if>
+		<if test="levl!= null and levl !='' ">
+			and levl=#{levl}
+		</if>
+		<if test="degree  != null and degree !=''">
+			and degree=#{degree}
+		</if>
+		<if test="title != null and title !=''">
+			and title=#{title}
+		</if>
+		<if test="sex != null and sex !=''">
+			and sex=#{sex}
+		</if>
+		<if test="govState != null and govState !=''">
+			and govState=#{govState}
+		</if>
+		<if test="workState != null and workState !=''">
+			and workState=#{workState}
+		</if>
+		<if test="userName != null and userName !=''">
+			and userName like '%${userName}%'
+		</if>
+		<if test="idNumber != null and idNumber !=''">
+			and idNumber like '%${idNumber}%'
+		</if>
+		<if test="fromAge != null and fromAge !=''">
+			<![CDATA[ and #{fromAge} <= datediff(day,birthDate,getdate())/365 ]]>
+		</if>
+		<if test="toAge != null and toAge !=''">
+			<![CDATA[ and #{toAge}>=datediff(day,birthDate,getdate())/365 ]]>
+		</if>
+		<if test="fromWorkYear != null and fromWorkYear !=''">
+			<![CDATA[ and #{fromWorkYear} <= datediff(day,hireDate,getdate())/365 ]]>
+		</if>
+		<if test="toWorkYear != null and toWorkYear !=''">
+			<![CDATA[ and #{toWorkYear}>=datediff(day,hireDate,getdate())/365 ]]>
+		</if>
+	</select>
+
+	<!-- 分页条件查询事件 -->
+	<select id="queryUsersByCondition" parameterType="UserQueryDto"
+		resultType="User">
+		SELECT
+		r1.masterId,r1.userId,userName,departName, sex,birthDate,levl,degree,title,
+		hireDate,mobile, addr,govState,leaveDate,
+		workState,datediff(day,birthDate,getdate())/365
+		age,datediff(day,hireDate,getdate())/365 workYear
+		FROM tuser
+		r1
+		where
+		masterId in
+		(
+		SELECT TOP
+		${topNumber}
+		masterId FROM
+		(
+		SELECT TOP
+		${endNumber}
+		masterId
+		FROM tuser
+		where
+		1=1
+		<if test="parentDepartId != null  and parentDepartId != '' ">
+			and departId in (select departId from tdepart where parentDepartId=#{parentDepartId})
+		</if>
+		<if test="departId != null  and departId != '' ">
+			and departId=#{departId}
+		</if>
+		<if test="levl!= null and levl !='' ">
+			and levl=#{levl}
+		</if>
+		<if test="degree  != null and degree !=''">
+			and degree=#{degree}
+		</if>
+		<if test="title != null and title !=''">
+			and title=#{title}
+		</if>
+		<if test="sex != null and sex !=''">
+			and sex=#{sex}
+		</if>
+		<if test="govState != null and govState !=''">
+			and govState=#{govState}
+		</if>
+		<if test="workState != null and workState !=''">
+			and workState=#{workState}
+		</if>
+		<if test="userName != null and userName !=''">
+			and userName like '%${userName}%'
+		</if>
+			<if test="idNumber != null and idNumber !=''">
+			and idNumber like '%${idNumber}%'
+		</if>
+		<if test="fromAge != null and fromAge !=''">
+			<![CDATA[ and #{fromAge} <= datediff(day,birthDate,getdate())/365 ]]>
+		</if>
+		<if test="toAge != null and toAge !=''">
+			<![CDATA[ and #{toAge}>=datediff(day,birthDate,getdate())/365 ]]>
+		</if>
+		<if test="fromWorkYear != null and fromWorkYear !=''">
+			<![CDATA[ and #{fromWorkYear} <= datediff(day,hireDate,getdate())/365 ]]>
+		</if>
+		<if test="toWorkYear != null and toWorkYear !=''">
+			<![CDATA[ and #{toWorkYear}>=datediff(day,hireDate,getdate())/365 ]]>
+		</if>
+		ORDER BY  masterId DESC
+		) r ORDER BY masterId ASC
+		) ORDER BY
+		r1.masterId DESC
+	</select>
+
+	<insert id="addUser" parameterType="User">
+		insert into tuser
+		(masterId,userId,userName,departId,departName,sex,birthDate,levl,degree,title,hireDate,moblie,addr,govState,workState,password,state)
+		values(#{masterId},#{userId},#{userName},#{departId},#{departName},#{sex},#{birthDate},#{levl},#{degree},#{title},#{hireDate},#{moblie},#{addr},#{govState},#{workState},#{password},#{state});
+	</insert>
+
+	<select id="getParamValue" resultType="String" parameterType="String">
+		select value from tparam
+		where name='${_parameter}'
+	</select>
+
+	<update id="updateParamValue" parameterType="Param">
+		update tparam set
+		value=#{value}
+		where name=#{name}
+	</update>
+	<update id="updateLoginTime"  parameterType="LoginDto">
+		update tuser set
+		loginTime=#{loginTime}
+		where userId=#{userId}
+	</update>
+	<select id="queryBaseDataByTypeId" resultType="BaseData" parameterType="String">
+		select name from tbaseData
+		where typeId='${_parameter}' order by sortId
+	</select>
+	
+	<select id="initInfo"  parameterType="User">
+		update tuser set idNumber=#{idNumber},mobile=#{mobile},shortPhone=#{shortPhone},nativePlace=#{nativePlace},degree=#{degree},departId=#{departId},departName=#{departName},
+		password=#{newPassword},sex=#{sex},birthDate=#{birthDate},initFlag=1
+		where masterId=#{masterId}
+	</select>
+	
+	<select id="queryUserByMasterId" resultType="User" parameterType="String">
+		select * from tuser
+		where masterId='${_parameter}' 
+	</select>
+	<select id="queryDepartList" resultType="Depart" parameterType="DepartDto">
+		select * from tdepart
+		where levl=#{levl} and valid=#{valid}
+	</select>
+	<select id="queryDepartByParent" resultType="Depart" parameterType="DepartDto">
+		select * from tdepart
+		where 1=1
+		<if test="parentDepartId != null and parentDepartId != '' ">
+			and parentDepartId=#{parentDepartId} 
+		</if>
+		<if test="parentDepartId == null or parentDepartId == '' ">
+			and parentDepartId is not null 
+		</if>
+		<if test="valid != null  and valid != '' ">
+		and valid=#{valid} 
+		</if>
+		order by sortNo asc
+	</select>
+	
+	
+	<update id="updateMyInfo"  parameterType="User">
+		update tuser set
+		addr=#{addr},mobile=#{mobile},shortPhone=#{shortPhone}
+		where masterId=#{masterId}
+	</update>
+</mapper>

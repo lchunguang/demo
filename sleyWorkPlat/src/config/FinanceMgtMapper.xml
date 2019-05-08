@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="sley.finance.dao.FinanceMgtMapper">
+
+
+
+	<insert id="addGovSalary" parameterType="Salary">
+		insert into tsalary
+		(
+		year,month, userId, userName, departId, departName,
+		positionSalary,
+		gradeSalary, aboveSalary, baseSalary, encourageSalary,
+		floatSalary,
+		tenSalary, nurseSalary, healthSalary, nightSalary,
+		houseSalary,
+		propertySalary, grossSalary, hydropowerSalary,
+		memberSalary,
+		oldPension,occupAnnuity,unemploymentPay, medicalSalary,
+		houseFund, performancePay, otherPay, tax,totalDeduct,netPay,
+		userType
+		)
+		values(#{year},#{month},#{userId},#{userName},#{departId},#{departName},#{positionSalary},#{gradeSalary},#{aboveSalary},#{baseSalary},#{encourageSalary},#{floatSalary},#{tenSalary},#{nurseSalary},#{healthSalary},#{nightSalary},#{houseSalary},#{propertySalary},#{grossSalary},#{hydropowerSalary},#{memberSalary},#{oldPension},#{occupAnnuity},#{unemploymentPay},#{medicalSalary},#{houseFund},#{performancePay},#{otherPay},#{tax},#{totalDeduct},#{netPay},#{userType});
+	</insert>
+
+	<insert id="addConSalary" parameterType="Salary">
+		insert into tsalary
+		(
+		year,month, userId, userName, departId, departName,
+		positionSalary,gradeSalary,titleSalary,performancePay,nightSalary,
+		overtimePay,allowance,otherPay,grossSalary,memberSalary,oldPension,unemploymentPay,
+		medicalSalary,
+		houseFund,performancePay1,
+		hydropowerSalary,otherPay1,tax,netPay,userType
+		)
+		values(#{year},#{month},#{userId},#{userName},#{departId},#{departName},#{positionSalary},#{gradeSalary},#{titleSalary},#{performancePay},#{nightSalary},#{overtimePay},#{allowance},#{otherPay},#{grossSalary},#{memberSalary},#{oldPension},#{unemploymentPay},#{medicalSalary},#{houseFund},#{performancePay1},#{hydropowerSalary},#{otherPay1},#{tax},#{netPay},#{userType});
+	</insert>
+
+	<insert id="addConSalary1" parameterType="Salary">
+		insert into tsalary
+		(
+		year,month, userId, userName, departId, departName,
+		positionSalary,
+		gradeSalary, baseSalary, encourageSalary,houseSalary,
+		nightSalary,
+		floatSalary,healthSalary,
+		otherPay, grossSalary,
+		memberSalary,oldPension,
+		unemploymentPay,
+		medicalSalary,
+		houseFund,
+		rentPay,hydropowerSalary,
+		otherPay1,tax,netPay,
+		userType
+		)
+		values(#{year},#{month},#{userId},#{userName},#{departId},#{departName},#{positionSalary},#{gradeSalary},#{baseSalary},#{encourageSalary},#{houseSalary},#{nightSalary},#{floatSalary},#{healthSalary},#{otherPay},#{grossSalary},#{memberSalary},#{oldPension},#{unemploymentPay},#{medicalSalary},#{houseFund},#{rentPay},#{hydropowerSalary},#{otherPay1},#{tax},#{netPay},#{userType});
+	</insert>
+
+	<delete id="deleteSalary" parameterType="SalaryDto">
+		delete from tsalary
+		where year=#{year} and month=#{month} and
+		userType=#{userType}
+	</delete>
+
+	<select id="querySalaryList" parameterType="SalaryDto"
+		resultType="Salary">
+		select * from tsalary where year=#{year} and month=#{month}
+		and
+		userType=#{userType}
+	</select>
+	
+	<select id="queryMySalary" parameterType="SalaryDto"
+		resultType="Salary">
+		select * from tsalary where year=#{year} and month=#{month}
+		and userId=#{userId}
+	</select>
+
+</mapper>

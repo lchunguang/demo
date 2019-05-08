@@ -1,0 +1,72 @@
+/* CSS Document */
+
+.tab{
+	width:100%;
+	margin:0 auto;
+}
+.tab_content{
+	width:98%;
+	height:300px;
+	overflow-y:scroll;
+	margin:0 auto;
+	border-right:ipx solid #bcbcbc;
+}
+.tab_title{
+	width:100%;
+	height:26px;
+	background: #8abcdf url('../images/tab/tab_b.gif') repeat-x;
+	border-left: 1px solid #e2f2ff;border-top: 1px solid #ffffff;
+	border-bottom: 1px solid #4e9cd7;	
+	
+}
+#regionQuota,#history{
+	margin-top:6px;
+	float:left;
+	width:100px;
+	height:20px;
+	line-height:20px;
+	text-align:center;
+	font-weight:bold;
+	margin-left:8px;	
+
+}
+
+.tab_content li{
+	list-style:none;
+}
+.tab_li_none{
+	display:none;
+}
+.div3_bdm{
+	width:98%;
+	height:260px;
+	overflow-y:auto;
+	margin:0 auto;
+	
+}
+.data_div_tab {
+	width: 98%;
+	overflow:hidden;
+	clear: both;
+	margin:0 auto;
+	border-top: 1px solid #72baf0;
+	border-left: 1px solid #72baf0;
+	border-bottom: 1px solid #72baf0;
+	border-right:1px solid #72baf0;
+}
+
+.checked-ico{
+	font-size:10px;
+	float:left;
+}
+.tab_a{
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#efefef, endColorstr=#ffffff); 
+	border-top: 1px solid #4e9cd7; 
+	border-right: 1px solid #4e9cd7; 
+	border-left: 1px solid #4e9cd7; 
+	font-weight:bold;
+	height:20px; 
+	margin-top:8px;
+	margin-left:8px;
+	color:#28a8e0;
+}
